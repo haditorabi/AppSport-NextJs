@@ -5,7 +5,7 @@ import { useAuthStore } from '@/lib/stores/useAuthStore';
 import { getUserProfile, updateUserProfile } from '@/lib/firebase/firestore';
 import { UserProfile, ClientProfile, CoachProfile } from '@/lib/types';
 
-const sportOptions = [ 'Soccer', 'Basketball', 'Tennis', 'Swimming', 'Running', 'Cycling', 'Hockey', 'Baseball', 'Volleyball', 'Golf', 'Martial Arts', 'Boxing', 'Cricket', 'Rugby', 'Other' ].map(s => ({ label: s, value: s }));
+const sportOptions = ['Soccer', 'Basketball', 'Tennis', 'Swimming', 'Running', 'Cycling', 'Hockey', 'Baseball', 'Volleyball', 'Golf', 'Martial Arts', 'Boxing', 'Cricket', 'Rugby', 'Other'].map(s => ({ label: s, value: s }));
 
 const experienceLevelOptions = [
   { label: 'Beginner', value: 'beginner' },
@@ -32,14 +32,26 @@ const targetAthletesOptions = [
 ];
 
 const cityOptions = [
-  { label: 'New York', value: 'New York' },
-  { label: 'Los Angeles', value: 'Los Angeles' },
-  { label: 'Chicago', value: 'Chicago' },
-  { label: 'Houston', value: 'Houston' },
-  { label: 'Miami', value: 'Miami' },
-  { label: 'London', value: 'London' },
   { label: 'Toronto', value: 'Toronto' },
-  { label: 'Sydney', value: 'Sydney' }
+  { label: 'Ottawa', value: 'Ottawa' },
+  { label: 'Mississauga', value: 'Mississauga' },
+  { label: 'Brampton', value: 'Brampton' },
+  { label: 'Hamilton', value: 'Hamilton' },
+  { label: 'London', value: 'London' },
+  { label: 'Markham', value: 'Markham' },
+  { label: 'Vaughan', value: 'Vaughan' },
+  { label: 'Kitchener', value: 'Kitchener' },
+  { label: 'Windsor', value: 'Windsor' },
+  { label: 'Richmond Hill', value: 'Richmond Hill' },
+  { label: 'Oakville', value: 'Oakville' },
+  { label: 'Burlington', value: 'Burlington' },
+  { label: 'Oshawa', value: 'Oshawa' },
+  { label: 'Barrie', value: 'Barrie' },
+  { label: 'Sudbury', value: 'Sudbury' },
+  { label: 'Kingston', value: 'Kingston' },
+  { label: 'Guelph', value: 'Guelph' },
+  { label: 'Thunder Bay', value: 'Thunder Bay' },
+  { label: 'Waterloo', value: 'Waterloo' },
 ];
 
 const availabilityOptions = [
@@ -62,7 +74,7 @@ export default function ProfilePage() {
       setLoading(false);
       return;
     }
-    
+
     getUserProfile(user.uid)
       .then(data => {
         setProfile(data);
@@ -81,9 +93,9 @@ export default function ProfilePage() {
 
   const handleSave = async (field: keyof UserProfile) => {
     if (!user || !profile) return;
-    
+
     let processedValue: any = editValue;
-    
+
     // Quick coercion for arrays
     if ((field as string) === 'availability' || (field as string) === 'coachingFocus' || (field as string) === 'targetAthletes') {
       processedValue = (editValue as string).split(',').map(s => s.trim()).filter(Boolean);
@@ -124,9 +136,9 @@ export default function ProfilePage() {
   const coachProfile = profile as CoachProfile;
 
   const renderField = (
-    label: string, 
-    field: keyof UserProfile, 
-    displayValue: string, 
+    label: string,
+    field: keyof UserProfile,
+    displayValue: string,
     rawValue: string | number | string[],
     options?: { label: string, value: string }[],
     isMulti: boolean = false,
@@ -140,33 +152,33 @@ export default function ProfilePage() {
         {isEditing ? (
           <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
             {options ? (
-               <select
-                 multiple={isMulti}
-                 className="input-field"
-                 value={isMulti ? (typeof editValue === 'string' ? editValue.split(', ').filter(Boolean) : editValue) : editValue}
-                 onChange={(e) => {
-                   if (isMulti) {
-                     const selected = Array.from(e.target.selectedOptions, option => option.value);
-                     setEditValue(selected.join(', '));
-                   } else {
-                     setEditValue(e.target.value);
-                   }
-                 }}
-                 style={{ flex: 1, padding: '0.5rem' }}
-                 autoFocus
-               >
-                 {!isMulti && <option value="" disabled>Select {label}</option>}
-                 {options.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
-               </select>
+              <select
+                multiple={isMulti}
+                className="input-field"
+                value={isMulti ? (typeof editValue === 'string' ? editValue.split(', ').filter(Boolean) : editValue) : editValue}
+                onChange={(e) => {
+                  if (isMulti) {
+                    const selected = Array.from(e.target.selectedOptions, option => option.value);
+                    setEditValue(selected.join(', '));
+                  } else {
+                    setEditValue(e.target.value);
+                  }
+                }}
+                style={{ flex: 1, padding: '0.5rem' }}
+                autoFocus
+              >
+                {!isMulti && <option value="" disabled>Select {label}</option>}
+                {options.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+              </select>
             ) : (
-               <input 
-                 type={typeof rawValue === 'number' ? 'number' : 'text'}
-                 className="input-field" 
-                 value={editValue} 
-                 onChange={(e) => setEditValue(e.target.value)} 
-                 style={{ flex: 1, padding: '0.5rem' }} 
-                 autoFocus
-               />
+              <input
+                type={typeof rawValue === 'number' ? 'number' : 'text'}
+                className="input-field"
+                value={editValue}
+                onChange={(e) => setEditValue(e.target.value)}
+                style={{ flex: 1, padding: '0.5rem' }}
+                autoFocus
+              />
             )}
             <button onClick={() => handleSave(field as keyof UserProfile)} className="btn-primary" style={{ padding: '0.5rem 1rem' }}>Save</button>
             <button onClick={() => setEditingField(null)} className="btn-secondary" style={{ padding: '0.5rem 1rem' }}>Cancel</button>
@@ -175,8 +187,8 @@ export default function ProfilePage() {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <span style={{ fontWeight: 500 }}>{displayValue}</span>
             {editable && (
-              <button 
-                onClick={() => handleEdit(field as keyof UserProfile, rawValue)} 
+              <button
+                onClick={() => handleEdit(field as keyof UserProfile, rawValue)}
                 style={{ color: 'var(--color-primary-light)', fontSize: '0.875rem', fontWeight: 600, background: 'none', border: 'none', cursor: 'pointer' }}
               >
                 Edit
@@ -192,7 +204,7 @@ export default function ProfilePage() {
     <div className="container" style={{ paddingTop: '8rem', paddingBottom: '4rem', maxWidth: '800px' }}>
       <div className="glass" style={{ padding: '3rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '8px', background: 'linear-gradient(90deg, var(--color-primary), var(--color-secondary))' }} />
-        
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '3rem' }}>
           <div style={{ width: '5rem', height: '5rem', borderRadius: '50%', background: 'linear-gradient(135deg, var(--color-surface-2), var(--color-surface-3))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2rem', border: '2px solid var(--color-border)' }}>
             👤
@@ -216,7 +228,7 @@ export default function ProfilePage() {
               {renderField('Postal Code', 'postalCode', profile.postalCode, profile.postalCode)} */}
             </div>
           </div>
-          
+
           <div>
             <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', paddingBottom: '0.5rem', borderBottom: '1px solid var(--color-border)' }}>Sport Preferences</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
@@ -248,8 +260,8 @@ export default function ProfilePage() {
           </div>
         </div>
 
-          {/* Details */}
-          {profile.role === 'client' && (
+        {/* Details */}
+        {profile.role === 'client' && (
           <div style={{ marginTop: '2rem', paddingTop: '1.5rem', borderTop: '1px solid var(--color-border)' }}>
             <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem' }}>Budget Range</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>

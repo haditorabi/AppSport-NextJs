@@ -13,7 +13,9 @@ const ontarioCities = [
   'Toronto', 'Ottawa', 'Mississauga', 'Brampton', 'Hamilton',
   'London', 'Markham', 'Vaughan', 'Kitchener', 'Windsor',
   'Richmond Hill', 'Oakville', 'Burlington', 'Oshawa', 'Barrie',
+  'Sudbury', 'Kingston', 'Guelph', 'Thunder Bay', 'Waterloo',
 ];
+
 
 const sports = [
   'Soccer', 'Basketball', 'Tennis', 'Swimming', 'Running',
