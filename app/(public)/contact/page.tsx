@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import "./page.css"
 
 export const metadata: Metadata = {
   title: 'Contact AppSport – Get in Touch',
@@ -36,8 +37,8 @@ export default function ContactPage() {
                   <div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Phone</div>
                     <a href="tel:+16473001234" style={{ color: 'var(--color-text)', fontWeight: 500, transition: 'color 0.2s' }}
-                      onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-primary-light)'}
-                      onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-text)'}
+                      // onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-primary-light)'}
+                      // onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-text)'}
                     >+1 (647) 300-1234</a>
                   </div>
                 </div>
@@ -46,8 +47,8 @@ export default function ContactPage() {
                   <div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--color-text-muted)', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.25rem' }}>Email</div>
                     <a href="mailto:hello@appsport.io" style={{ color: 'var(--color-text)', fontWeight: 500, transition: 'color 0.2s' }}
-                      onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-primary-light)'}
-                      onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-text)'}
+                      // onMouseEnter={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-primary-light)'}
+                      // onMouseLeave={e => (e.currentTarget as HTMLAnchorElement).style.color = 'var(--color-text)'}
                     >hello@appsport.io</a>
                   </div>
                 </div>

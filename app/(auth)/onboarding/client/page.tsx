@@ -95,14 +95,14 @@ export default function ClientOnboardingPage() {
         lastName: store.lastName!,
         email: store.email!,
         sport: store.sport!,
-        trainingGoal: store.trainingGoal!,
-        experienceLevel: store.experienceLevel!,
+        trainingGoal: store.trainingGoal as 'fitness_conditioning' | 'improve_skills' | 'competition_prep',
+        experienceLevel: store.experienceLevel as 'beginner' | 'intermediate' | 'advanced',
         city: store.city!,
         postalCode: store.postalCode!,
         availability: store.availability!,
         budgetMin: store.budgetMin ?? 0,
         budgetMax: store.budgetMax ?? 60,
-      });
+      } as any);
       store.reset();
       router.push('/profile');
     } catch (err: unknown) {

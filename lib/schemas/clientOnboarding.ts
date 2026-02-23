@@ -13,12 +13,8 @@ export const clientStep1Schema = z.object({
 
 // Step 2 – Training Preferences
 export const clientStep2Schema = z.object({
-  trainingGoal: z.enum(['fitness_conditioning', 'improve_skills', 'competition_prep'], {
-    required_error: 'Please select a training goal',
-  }),
-  experienceLevel: z.enum(['beginner', 'intermediate', 'advanced'], {
-    required_error: 'Please select your experience level',
-  }),
+  trainingGoal: z.enum(['fitness_conditioning', 'improve_skills', 'competition_prep']),
+  experienceLevel: z.enum(['beginner', 'intermediate', 'advanced']),
 });
 
 // Step 3 – Location & Availability

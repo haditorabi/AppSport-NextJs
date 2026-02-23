@@ -100,7 +100,7 @@ export default function CoachOnboardingPage() {
         pricingIntermediate: store.pricingIntermediate,
         pricingAdvanced: store.pricingAdvanced,
         bio: store.bio,
-      });
+      } as any);
       store.reset();
       router.push('/profile');
     } catch (err: unknown) {

@@ -14,9 +14,7 @@ export const coachStep2Schema = z.object({
 
 // Step 3 – Coaching Experience
 export const coachStep3Schema = z.object({
-  coachingExperience: z.enum(['beginner', 'intermediate', 'advanced'], {
-    required_error: 'Please select your experience level',
-  }),
+  coachingExperience: z.enum(['beginner', 'intermediate', 'advanced']),
 });
 
 // Step 4 – Target Athletes
