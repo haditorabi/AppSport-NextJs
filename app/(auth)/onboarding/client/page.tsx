@@ -310,9 +310,9 @@ export default function ClientOnboardingPage() {
         {/* Navigation */}
         <div style={{ display: 'flex', gap: '0.875rem', marginTop: '2rem', justifyContent: 'space-between', alignItems: 'center' }}>
           {store.currentStep > 1 ? (
-            <button id="client-back" onClick={handleBack} className="btn-secondary" style={{ flex: 1 }}>← Back</button>
+            <button id="client-back" onClick={handleBack} className="btn-secondary" style={{ flex: 1, justifyContent:'center' }}>← Back</button>
           ) : (
-            <Link href="/get-started" className="btn-ghost" style={{ flex: 1, textAlign: 'center' }}>← Back</Link>
+            <Link href="/get-started" className="btn-ghost" style={{ flex: 1, justifyContent:'center' }}>← Back</Link>
           )}
 
           {store.currentStep === 4 && (
