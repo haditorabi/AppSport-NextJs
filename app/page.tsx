@@ -34,6 +34,7 @@ const steps = [
 ];
 
 export default function HomePage() {
+  // test
   return (
     <>
       <PublicHeader />
