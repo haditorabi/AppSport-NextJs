@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -14,14 +15,14 @@ export default function LoginPage() {
       background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(37,99,235,0.12) 0%, transparent 70%)'
     }}>
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '2.5rem' }}>
-        <div style={{
-          width: '2.2rem', height: '2.2rem', borderRadius: 'var(--radius-md)',
-          background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'white'
-        }}>A</div>
-        <span style={{ fontWeight: 800, fontSize: '1.3rem', letterSpacing: '-0.03em' }}>
-          App<span className="text-gradient">Sport</span>
-        </span>
+        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '3rem' }}>
+          <Image
+            src="/logo-header.png"
+            width={200}
+            height={200}
+            alt="Picture of the author"
+          />
+        </Link>
       </Link>
 
       <div className="glass" style={{ width: '100%', maxWidth: '420px', padding: '2.5rem' }}>

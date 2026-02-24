@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { signOut } from '@/lib/firebase/auth';
 import { useAuthStore } from '@/lib/stores/useAuthStore';
+import Image from 'next/image';
 
 export default function AppHeader() {
   const router = useRouter();
@@ -21,15 +22,12 @@ export default function AppHeader() {
         <nav className="flex items-center justify-between" style={{ height: '4.5rem' }}>
           {/* Logo */}
           <Link href="/dashboard" className="flex items-center gap-2">
-            <div style={{
-              width: '2rem', height: '2rem', borderRadius: 'var(--radius-md)',
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: 900, fontSize: '1rem', color: 'white'
-            }}>A</div>
-            <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.03em' }}>
-              App<span className="text-gradient">Sport</span>
-            </span>
+            <Image
+              src="/logo-header.png"
+              width={50}
+              height={100}
+              alt="AppSport"
+            />
           </Link>
 
           {/* Nav links */}

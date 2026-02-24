@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useCoachOnboardingStore } from '@/lib/stores/useCoachOnboardingStore';
 import { signUp } from '@/lib/firebase/auth';
 import { createUserProfile } from '@/lib/firebase/firestore';
+import Image from 'next/image';
 
 const TOTAL_STEPS = 8;
 
@@ -119,8 +120,12 @@ export default function CoachOnboardingPage() {
       background: 'radial-gradient(ellipse 70% 50% at 50% 20%, rgba(249,115,22,0.08) 0%, transparent 70%)'
     }}>
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem' }}>
-        <div style={{ width: '2rem', height: '2rem', borderRadius: 'var(--radius-sm)', background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'white', fontSize: '0.9rem' }}>A</div>
-        <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>App<span className="text-gradient">Sport</span></span>
+        <Image
+          src="/logo-header.png"
+          width={100}
+          height={100}
+          alt="AppSport"
+        />
       </Link>
 
       <div className="glass" style={{ width: '100%', maxWidth: '520px', padding: '2.5rem' }}>
@@ -362,9 +367,9 @@ export default function CoachOnboardingPage() {
         {/* Navigation */}
         <div style={{ display: 'flex', gap: '0.875rem', marginTop: '2rem', justifyContent: 'space-between', alignItems: 'center' }}>
           {store.currentStep > 1 ? (
-            <button id="coach-back" onClick={handleBack} className="btn-secondary" style={{ flex: 1, justifyContent:'center' }}>← Back</button>
+            <button id="coach-back" onClick={handleBack} className="btn-secondary" style={{ flex: 1, justifyContent: 'center' }}>← Back</button>
           ) : (
-            <Link href="/get-started" className="btn-ghost" style={{ flex: 1, justifyContent:'center' }}>← Back</Link>
+            <Link href="/get-started" className="btn-ghost" style={{ flex: 1, justifyContent: 'center' }}>← Back</Link>
           )}
 
           {(store.currentStep === 6 || store.currentStep === 7) && (

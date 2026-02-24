@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image'
+
 import './page.css';
 
 export const metadata: Metadata = {
@@ -16,14 +18,12 @@ export default function GetStartedPage() {
     }}>
       {/* Logo */}
       <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '3rem' }}>
-        <div style={{
-          width: '2.5rem', height: '2.5rem', borderRadius: 'var(--radius-md)',
-          background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-          display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 900, color: 'white', fontSize: '1.2rem'
-        }}>A</div>
-        <span style={{ fontWeight: 800, fontSize: '1.4rem', letterSpacing: '-0.03em' }}>
-          App<span className="text-gradient">Sport</span>
-        </span>
+        <Image
+          src="/logo-header.png"
+          width={200}
+          height={200}
+          alt="AppSport"
+        />
       </Link>
 
       <div style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: '50ch' }}>
@@ -67,16 +67,16 @@ export default function GetStartedPage() {
               display: 'block',
               textDecoration: 'none',
             }}
-            // onMouseEnter={e => {
-            //   const el = e.currentTarget as HTMLAnchorElement;
-            //   el.style.transform = 'translateY(-4px)';
-            //   el.style.boxShadow = '0 20px 40px rgba(37,99,235,0.25)';
-            // }}
-            // onMouseLeave={e => {
-            //   const el = e.currentTarget as HTMLAnchorElement;
-            //   el.style.transform = 'translateY(0)';
-            //   el.style.boxShadow = '';
-            // }}
+          // onMouseEnter={e => {
+          //   const el = e.currentTarget as HTMLAnchorElement;
+          //   el.style.transform = 'translateY(-4px)';
+          //   el.style.boxShadow = '0 20px 40px rgba(37,99,235,0.25)';
+          // }}
+          // onMouseLeave={e => {
+          //   const el = e.currentTarget as HTMLAnchorElement;
+          //   el.style.transform = 'translateY(0)';
+          //   el.style.boxShadow = '';
+          // }}
           >
             <div style={{
               width: '5rem', height: '5rem', borderRadius: '50%',

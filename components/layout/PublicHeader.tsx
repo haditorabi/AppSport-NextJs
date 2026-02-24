@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -12,15 +13,12 @@ export default function PublicHeader() {
         <nav className="flex items-center justify-between" style={{ height: '4.5rem' }}>
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div style={{
-              width: '2rem', height: '2rem', borderRadius: 'var(--radius-md)',
-              background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontWeight: 900, fontSize: '1rem', color: 'white'
-            }}>A</div>
-            <span style={{ fontWeight: 800, fontSize: '1.2rem', letterSpacing: '-0.03em' }}>
-              App<span className="text-gradient">Sport</span>
-            </span>
+            <Image
+              src="/logo-header.png"
+              width={60}
+              height={100}
+              alt="AppSport"
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -53,12 +51,12 @@ export default function PublicHeader() {
           >
             <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2">
               {menuOpen ? (
-                <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round"/>
+                <path d="M6 6l12 12M6 18L18 6" strokeLinecap="round" />
               ) : (
                 <>
-                  <line x1="3" y1="7" x2="21" y2="7"/>
-                  <line x1="3" y1="12" x2="21" y2="12"/>
-                  <line x1="3" y1="17" x2="21" y2="17"/>
+                  <line x1="3" y1="7" x2="21" y2="7" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="17" x2="21" y2="17" />
                 </>
               )}
             </svg>

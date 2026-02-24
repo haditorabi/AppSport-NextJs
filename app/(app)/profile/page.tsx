@@ -201,7 +201,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="container" style={{ paddingTop: '8rem', paddingBottom: '4rem', maxWidth: '800px' }}>
+    <div className="container" style={{ paddingTop: '8rem', paddingBottom: '4rem', maxWidth: '800px', marginLeft: 'auto', marginRight: 'auto' }}>
       <div className="glass" style={{ padding: '3rem', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '8px', background: 'linear-gradient(90deg, var(--color-primary), var(--color-secondary))' }} />
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -9,14 +10,13 @@ export default function Footer() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem', marginBottom: '2.5rem' }}>
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2" style={{ marginBottom: '0.75rem' }}>
-              <div style={{
-                width: '1.75rem', height: '1.75rem', borderRadius: 'var(--radius-sm)',
-                background: 'linear-gradient(135deg, var(--color-primary), var(--color-secondary))',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontWeight: 900, fontSize: '0.9rem', color: 'white'
-              }}>A</div>
-              <span style={{ fontWeight: 800, fontSize: '1.1rem' }}>App<span className="text-gradient">Sport</span></span>
+            <div className="flex items-center justify-center gap-2" style={{ marginBottom: '0.75rem' }}>
+              <Image
+                src="/logo-header.png"
+                width={100}
+                height={100}
+                alt="AppSport"
+              />
             </div>
             <p style={{ color: 'var(--color-text-muted)', fontSize: '0.875rem', lineHeight: 1.7, maxWidth: '22ch' }}>
               Connecting athletes with the right coaches through intelligent matching.
